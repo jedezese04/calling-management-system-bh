@@ -1,5 +1,7 @@
-import { Container,  Stack } from '@mui/material'
+import { Container,  Stack, Typography } from '@mui/material'
 import { DndTableGroup } from './containers/DnDTableGroup';
+import { SelectDoctor, SelectLocation } from './containers';
+import "./App.css"
 
 // Matching fields between Raw Data and Table's column name
 const columnKeys: { [key: string]: string } = {
@@ -46,24 +48,39 @@ const tables = [
 
 function App() {
   return (
-    <Container>
-      <Stack>
-        <DndTableGroup
-          columnKeys={columnKeys}
-          tables={tables}
-          pendingQueueTableActionsClicked={(action, data) => {
-            if(action === "message") {
-              console.log("Message action")
-              console.log(data)
-            } else if(action === "phone") {
-              console.log("Phone action")
-              console.log(data)
-            }
-          }}
-        />
-      </Stack>
-    </Container>
-  );
+		<Container>
+			<Stack>
+				<Stack
+					direction={"row"}
+					spacing={2}
+					marginY={2}
+					justifyContent={"center"}
+				>
+					<Stack direction={"row"} spacing={1} alignItems={"center"}>
+						<Typography>Select Doctor :</Typography>
+						<SelectDoctor onSelect={(e) => {}} />
+					</Stack>
+					<Stack direction={"row"} spacing={1} alignItems={"center"}>
+						<Typography>Select Location :</Typography>
+						<SelectLocation onSelect={(e) => {}} />
+					</Stack>
+				</Stack>
+				<DndTableGroup
+					columnKeys={columnKeys}
+					tables={tables}
+					pendingQueueTableActionsClicked={(action, data) => {
+						if (action === "message") {
+							console.log("Message action")
+							console.log(data)
+						} else if (action === "phone") {
+							console.log("Phone action")
+							console.log(data)
+						}
+					}}
+				/>
+			</Stack>
+		</Container>
+  )
 }
 
 export default App;

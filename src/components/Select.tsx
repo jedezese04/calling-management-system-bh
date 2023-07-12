@@ -30,6 +30,7 @@ export const Select: React.FC<Props> = ({ label, choices, selectionCallback, sma
             defaultValue={choices[0].value}
             onChange={handleChange}
             size={small ? "small" : "medium"}
+            sx={{backgroundColor: "white"}}
           >
             {
                 choices.length > 0 &&
