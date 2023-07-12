@@ -25,22 +25,22 @@ const secondPatients = [
 
 const tables = [
   { 
-    name: "currentQueue",
+    name: "Current Queue",
     columns: ["HN", "Name", "Appointment time", "Called at"],
     items: initialPatients
   },
   { 
-    name: "pendingQueue",
+    name: "Pending Queue",
     columns: ["Seq", "HN", "Name", "Arrived at", "Appointment time", "Action"],
     items: secondPatients
   },
   { 
-    name: "appointmentList",
+    name: "Appointment List",
     columns: ["HN", "Name", "Arrived at", "Appointment time", "Lab status"],
     items: []
   },
   { 
-    name: "pending",
+    name: "Pending to investigate or depart",
     columns: ["HN", "Name", "Appointment time"],
     items: []
   }
